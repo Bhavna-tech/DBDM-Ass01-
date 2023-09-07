@@ -1,23 +1,32 @@
 SQL Query
 
-Que1: select fname from student_info where program='btech';
-Que2: select fname from student_info where program='mtech' AND fellowship=2500
-Que3: 
-
-Cartesian product 
-select * from instructor_info CROSS JOIN teaches_info
-
-Natural Join 
-select * from instructor_info NATURAL JOIN teaches_info
-
-Left Join
-select * from instructor_info LEFT JOIN teaches_info ON instructor_info.inst_id=teaches_info.instrid
-
-RIGHT JOIN 
-select * from instructor_info RIGHT JOIN teaches_info ON instructor_info.inst_id=teaches_info.instrid
+Que1: Find names of all students in BTech program.
+SQL Query: select fname from student_info where program='btech';
 
 
-Que 4:
+Que2: Find students in Mtech with a fellowship equal to $2000
+SQL Query:select fname from student_info where program='mtech' AND fellowship=2000
+
+
+Que3: The Cartesian product of the relations instructor and teaches.
+a. Perform natural, left and right joins for the same.
+SQL Query:
+  Cartesian product 
+    select * from instructor_info CROSS JOIN teaches_info
+
+  Natural Join 
+    select * from instructor_info NATURAL JOIN teaches_info
+
+  Left Join
+    select * from instructor_info LEFT JOIN teaches_info ON instructor_info.inst_id=teaches_info.instrid
+
+  RIGHT JOIN 
+    select * from instructor_info RIGHT JOIN teaches_info ON instructor_info.inst_id=teaches_info.instrid
+
+
+Que 4: Find all courses taught in the Summer 2019 semester or in the
+Spring 2020 semester.
+SQL Query:
 select DISTINCT teaches_info.courseid, courses_info.title from courses_info, teaches_info 
 where (teaches_info.semester='Spring' AND teaches_info.yos=2020);
 
